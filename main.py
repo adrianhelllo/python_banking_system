@@ -23,6 +23,29 @@ class Student:
 
     def __str__(self):
         return self.student_info()
+    
+    def __eq__(self, other_student):
+        return self.gpa == other_student.gpa
+    
+    def __lt__(self, other_student):
+        return self.gpa < other_student.gpa
+    
+    def __gt__(self, other_student):
+        return self.gpa > other_student.gpa
+    
+    def __add__(self, other_student):
+        return f"{self.name} and {other_student.name} work together on a group project."
+    
+    def __contains__(self, kw):
+        return kw in self.name
+    
+    def __getitem__(self, k):
+        if k == 'name':
+            return self.name
+        elif k == 'gpa':
+            return self.gpa
+        else:
+            return f'Key \"{k}\" was not found.'
 
 student1 = Student("Spongebob", 2.4)
 student2 = Student("Csaba", 3.4)
@@ -33,6 +56,15 @@ Student.get_count()
 
 for student in (student1, student2, student3, student4):
     print(student)
+
+print(student4 == student3)
+print(student4 < student3)
+print(student4 > student3)
+print(student4 + student3)
+print("evendul" in student4)
+print(student4['gpa'])
+print(student4['fasz'])
         
+
 
 
