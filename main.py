@@ -1,36 +1,33 @@
-class Library():
-    def __init__(self, name):
-        self.name = name
-        self.books = []
+class Car:
+    def __init__(self, model, color, horse_p, wheel_s):
+        self.model = model
+        self.color = color
+        self.wheels = [Wheel(19) for _ in range(4)]
+        self.engine = Engine(500)
 
-    def add_book(self, book):
-        self.books.append(book)
+    def __str__(self):
+        return f'This car is a {self.color} {self.model}, which has {len(self.wheels)}, {self.wheels[0].wheel_size}in wheels, and has an engine with {self.engine.horse_power} HP.'
 
-    def library_name(self):
-        print(f"Welcome to {self.name} library!")
+        
 
-    def list_books(self):
-        print('This library has the following books:')
+class Wheel:
+    def __init__(self, wheel_s):
+        self.wheel_size = wheel_s
 
-        for book in self.books:
-            print(f'{book.title} by {book.author}')
+    def print_size(self):
+        print(f"My wheel size is {self.wheel_size}in.")
 
-class Book():
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
 
-book1 = Book('Fasz1', 'Fasz1')
-book2 = Book('Fasz2', 'Fasz2')
-book3 = Book('Fasz3', 'Fasz3')
+class Engine:
+    def __init__(self, horse_p):
+        self.horse_power = horse_p
 
-library = Library('Könyvtár')
+    def print_hp(self):
+        print(f"Vroom! My horsepower is {self.horse_power}")
 
-library.add_book(book1)
-library.add_book(book2)
-library.add_book(book3)
+my_car = Car("Ford Focus", "Red", "900", 19)
 
-library.list_books()
+print(my_car)
 
 
         
